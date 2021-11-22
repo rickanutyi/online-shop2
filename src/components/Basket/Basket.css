@@ -1,0 +1,7 @@
+.cart td {
+  padding: 15px 0;
+  border-bottom: 1px solid gray;
+}
+.cart img {
+  width: 50px;
+}
