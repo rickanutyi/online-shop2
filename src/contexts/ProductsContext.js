@@ -35,7 +35,9 @@ const reducer = (state = INIT_STATE, action) => {
 const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const getProducts = async (params) => {
-    const { data } = await axios(`http://localhost:8000/products?${params}`);
+    const { data } = await axios(
+      `https://erlan-shop-shop.herokuapp.com/api/products?${params}`
+    );
 
     dispatch({
       type: "GET_PRODUCTS",
@@ -45,7 +47,7 @@ const ProductsContextProvider = ({ children }) => {
   //wdwe
   async function getPageProducts(page = 1) {
     const { data } = await axios(
-      `http://localhost:8000/products?_page=${page}&_limit=4`
+      `https://erlan-shop-shop.herokuapp.com/api/products?_page=${page}&_limit=4`
     );
 
     dispatch({
@@ -54,7 +56,9 @@ const ProductsContextProvider = ({ children }) => {
     });
   }
   const getCurProduct = async (id) => {
-    const { data } = await axios(`http://localhost:8000/products/${id}`);
+    const { data } = await axios(
+      `https://erlan-shop-shop.herokuapp.com/api/products/${id}`
+    );
     dispatch({
       type: "GET_CURRENT_PRODUCT",
       payload: data,
